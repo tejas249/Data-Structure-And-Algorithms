@@ -1,3 +1,3 @@
 # Data-Structure-And-Algorithms
 <br>
-This respository contains all my Dta Structurs And Algorithms Code
+This respository contains all my Data Structurs And Algorithms Code
