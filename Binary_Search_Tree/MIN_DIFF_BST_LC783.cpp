@@ -34,3 +34,27 @@ public:
         return ans;
     }
 };
+
+
+
+
+// SOLUTION NO 2
+// store the inorder in the vector and compare two element for finding the diffrence
+ vector<int> v;
+     void inorder(TreeNode* root){
+         if(root == NULL){
+             return;
+         }
+         inorder(root->left);
+         v.push_back(root->val);
+         inorder(root->right);
+     }
+    int minDiffInBST(TreeNode* root) {
+       inorder(root);
+       int ans = INT_MAX;
+       int n = v.size();
+       for(int i=1; i<n; i++){
+           ans = min(ans, v[i] - v[i-1]);
+       }
+       return ans;
+    }
