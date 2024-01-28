@@ -1,3 +1,10 @@
+// There are two approach 
+//1. DP top down approach 
+//2. Recursive approach 
+
+
+
+
 class Solution {
 public:
     // this problem can be reduced to counting subset with a given difference which can be further reduced to counting subset sum
@@ -48,5 +55,27 @@ public:
         }
         
         return dp[n][sum]%mod;
+    }
+};
+
+
+
+#######################  RECURSIVE APPROACH 
+
+class Solution {
+public:
+    
+    int solve(vector<int> &nums,int target,int ans,int index)
+    {
+        if(index==nums.size()&&ans==target)
+          return 1;
+        if(index>=nums.size())
+          return 0;
+
+        return solve(nums,target,ans+nums[index],index+1)+solve(nums,target,ans-nums[index],index+1);
+    }
+    int findTargetSumWays(vector<int>& nums, int target) {
+        int ans=0,i=0;
+        return solve(nums,target,ans,i);
     }
 };
